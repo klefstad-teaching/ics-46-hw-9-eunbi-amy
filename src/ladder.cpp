@@ -66,3 +66,19 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     error(begin_word, end_word, "No ladder found.");
     return {};
 }
+
+void load_words(set<string>& word_list, const string& file_name) {
+    ifstream inputFile;
+    inputFile.open(file_name);
+    if (!inputFile.is_open()) {
+        cout << "Error: Failed to open the file." << endl;
+        return;
+    }
+    string word;
+    while (getline(inputFile, word)) {
+        transform(word.begin(), word.end(), word.begin(), toLowerCase);
+        word_list.insert(word);
+    }
+    inputFile.close();
+}
+
