@@ -10,7 +10,7 @@ char toLowerCase(unsigned char c) {
     return tolower(c);
 }
 
-bool edit_distance_within(const string& str1, string& str2, int d) {
+bool edit_distance_within(const string& str1, const string& str2, int d) {
     // true if str1 can be transformed to str2 in d edits
     string s1 = str1, s2 = str2;
     transform(s1.begin(), s1.end(), s1.begin(), toLowerCase);
@@ -88,9 +88,7 @@ void print_word_ladder(const vector<string>& ladder) {
     }
 }
 
-#define my_assert(e) {
-    cout << #e << ((e) ? " passed" : " failed") << endl;
-}
+#define my_assert(e) {cout << #e << ((e) ? " passed" : " failed") << endl;}
 
 void verify_word_ladder() {
     set<string> word_list;
