@@ -74,7 +74,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
             q.pop();
             string last_word = ladder.back();
 
-            for (int pos = 0; pos < last_word.size(); ++pos) {
+            for (int pos = last_word.size() - 1; pos >= 0; --pos) {
                 string new_word = last_word;
                 for (char c = 'a'; c <= 'z'; ++c) {
                     if (new_word[pos] == c) continue;
@@ -147,6 +147,10 @@ void load_words(set<string>& word_list, const string& file_name) {
 }
 
 void print_word_ladder(const vector<string>& ladder) {
+    if (ladder.empty()) {
+        cout << "No word ladder found." << endl;
+        return;
+    }
     cout << "Word ladder found: ";
     for (auto& word : ladder) {
         cout << word << " ";
