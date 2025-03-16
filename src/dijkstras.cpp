@@ -43,7 +43,7 @@ vector<int> extract_shortest_path(const vector<int>&, const vector<int>& previou
 }
 
 void print_path(const vector<int>& v, int total) {
-    if (v.empty()) cout << "0 " << endl;
+    if (v.empty()) cout << "0" << endl;
     else {
         for (size_t i = 0; i < v.size(); ++i) cout << v[i] << " ";
         cout << endl;
